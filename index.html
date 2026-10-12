@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bé Tự Lập - Kỹ Năng Sống Cho Trẻ Em</title>
+  <style>
+    :root {
+      --primary: #ff7675;
+      --secondary: #74b9ff;
+      --accent: #ffeaa7;
+      --success: #55efc4;
+      --text-main: #2d3436;
+      --text-muted: #636e72;
+      --bg-page: #fdfaf6;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: #ffffff;
+      border-bottom: 2px solid #f1f2f6;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 0 40px;
+      background: linear-gradient(180deg, #fff2eb 0%, var(--bg-page) 100%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #ffeaa7;
+      color: #d63031;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: #2d3436;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(255, 118, 117, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-main);
+      border: 1px solid #dfe6e9;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Skills Grid */
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin: 50px 0 10px;
+      color: #2d3436;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #f0f0f0;
+      transition: transform 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .skill-icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      display: inline-block;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #2d3436;
+    }
+
+    .skill-card ul {
+      list-style-type: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-card li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .skill-card li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #00b894;
+      font-size: 0.85rem;
+    }
+
+    /* Interactive Scenario Box */
+    .scenario-box {
+      background: #ffffff;
+      border: 2px dashed #74b9ff;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 60px;
+    }
+
+    .scenario-box h3 {
+      color: #0984e3;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .scenario-question {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .scenario-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .opt-btn {
+      padding: 12px 18px;
+      border: 1px solid #dfe6e9;
+      background: #fafafa;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .opt-btn:hover {
+      background: #eef2f7;
+    }
+
+    .feedback {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      display: none;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #dfe6e9;
+      padding: 30px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <a href="#" class="brand">🌱 Bé Tự Lập</a>
+      <nav>
+        <a href="#skills">Nhóm Kỹ Năng</a>
+        <a href="#scenario">Tình Huống Mẫu</a>
+        <a href="#tips">Mẹo Cho Ba Mẹ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">🌟 Giáo dục sớm & Kỹ năng sống</span>
+      <h1>Nuôi Dưỡng Sự Tự Tin & Tự Lập Cho Trẻ</h1>
+      <p>Cung cấp các bài học tình huống thực tế, trực quan giúp bé rèn luyện kỹ năng tự bảo vệ, tự chăm sóc bản thân và ứng xử văn minh mỗi ngày.</p>
+      <div class="hero-buttons">
+        <a href="#skills" class="btn btn-primary">Khám Phá Kỹ Năng</a>
+        <a href="#scenario" class="btn btn-secondary">Thử Bài Học Mẫu</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- 4 Trụ cột Kỹ năng -->
+    <h2 id="skills" class="section-title">4 Trụ Cột Kỹ Năng Thiết Yếu</h2>
+    <p class="section-subtitle">Chương trình bài học được phân bổ khoa học theo sự phát triển của trẻ</p>
+
+    <div class="skills-grid">
+      <!-- Cột 1 -->
+      <div class="skill-card">
+        <div class="skill-icon">🛡️</div>
+        <h3>Tự Vệ & An Toàn</h3>
+        <ul>
+          <li>Quy tắc 5 ngón tay & Vùng đồ lót</li>
+          <li>Xử lý tình huống khi bị lạc</li>
+          <li>Cách nói "KHÔNG" dứt khoát</li>
+          <li>Ghi nhớ số điện thoại gia đình</li>
+        </ul>
+      </div>
+
+      <!-- Cột 2 -->
+      <div class="skill-card">
+        <div class="skill-icon">👟</div>
+        <h3>Tự Phục Vụ Bản Thân</h3>
+        <ul>
+          <li>Tự mặc áo quần, đi giày dép</li>
+          <li>Thu dọn đồ chơi, góc học tập</li>
+          <li>Đánh răng và vệ sinh đúng cách</li>
+          <li>Phân loại đồ chơi sau khi chơi</li>
+        </ul>
+      </div>
+
+      <!-- Cột 3 -->
+      <div class="skill-card">
+        <div class="skill-icon">💬</div>
+        <h3>Giao Tiếp & Ứng Xử</h3>
+        <ul>
+          <li>Lời chào hỏi, cảm ơn, xin lỗi</li>
+          <li>Biết lắng nghe và không ngắt lời</li>
+          <li>Học cách chia sẻ và chờ tới lượt</li>
+          <li>Tự tin thể hiện ý kiến của mình</li>
+        </ul>
+      </div>
+
+      <!-- Cột 4 -->
+      <div class="skill-card">
+        <div class="skill-icon">🌈</div>
+        <h3>Quản Lý Cảm Xúc</h3>
+        <ul>
+          <li>Nhận diện buồn bực, tức giận</li>
+          <li>Hít thở sâu để bình tĩnh lại</li>
+          <li>Giải quyết mâu thuẫn bằng lời nói</li>
+          <li>Nuôi dưỡng sự đồng cảm với bạn bè</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tình huống tương tác nhỏ dành cho bé -->
+    <section id="scenario" class="scenario-box">
+      <h3>🎮 Góc Nhập Vai: Tình Huống Giả Định</h3>
+      <div class="scenario-question">
+        "Khi đang đi siêu thị cùng mẹ, bé quay lại thì không thấy mẹ đâu nữa. Bé nên làm gì?"
+      </div>
+      <div class="scenario-options">
+        <button class="opt-btn" onclick="checkAnswer(1)">A. Khóc thật to và chạy khắp nơi để tìm mẹ.</button>
+        <button class="opt-btn" onclick="checkAnswer(2)">B. Đứng yên tại chỗ, hoặc đến quầy thu ngân / chú bảo vệ nhờ gọi loa thông báo.</button>
+        <button class="opt-btn" onclick="checkAnswer(3)">C. Đi theo một người lạ mời đồ ăn ngon để ra cửa tìm mẹ.</button>
+      </div>
+      <div id="feedback" class="feedback"></div>
+    </section>
+
+    <!-- Lời khuyên cho phụ huynh -->
+    <section id="tips" style="margin-bottom: 60px;">
+      <h2 class="section-title">Nguyên Tắc Dạy Trẻ Cho Cha Mẹ</h2>
+      <p class="section-subtitle">Đồng hành kiên nhẫn để con tự tin trưởng thành</p>
+      <div style="background: #ffffff; border-radius: 16px; padding: 28px; border: 1px solid #f0f0f0;">
+        <p style="margin-bottom: 12px;"><strong>1. Làm mẫu thay vì áp đặt:</strong> Trẻ học thông qua quan sát. Khi muốn con lễ phép hoặc ngăn nắp, hãy bắt đầu từ chính hành vi của cha mẹ.</p>
+        <p style="margin-bottom: 12px;"><strong>2. Khen ngợi nỗ lực cụ thể:</strong> Thay vì khen "Con thông minh lắm", hãy khen "Ba/mẹ rất vui vì con đã kiên nhẫn tự xếp gọn đồ dùng".</p>
+        <p><strong>3. Biến bài học thành trò chơi:</strong> Đặt ra các tình huống nhập vai đóng kịch vào cuối tuần giúp trẻ phản xạ tự nhiên khi gặp vấn đề ngoài đời thực.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Bé Tự Lập. Trang web cẩm nang rèn luyện kỹ năng sống cho gia đình và trẻ nhỏ.</p>
+    </div>
+  </footer>
+
+  <!-- Script xử lý tương tác đơn giản -->
+  <script>
+    function checkAnswer(option) {
+      const fb = document.getElementById('feedback');
+      fb.style.display = 'block';
+      if (option === 2) {
+        fb.style.backgroundColor = '#d4edda';
+        fb.style.color = '#155724';
+        fb.innerHTML = '🎉 <strong>Chính xác!</strong> Bé cần đứng yên hoặc tìm người mặc đồng phục (bảo vệ, thu ngân) để nhờ hỗ trợ, tuyệt đối không chạy lung tung hay đi theo người lạ.';
+      } else {
+        fb.style.backgroundColor = '#f8d7da';
+        fb.style.color = '#721c24';
+        fb.innerHTML = '❌ <strong>Chưa an toàn rồi!</strong> Chạy lung tung hoặc đi theo người lạ rất nguy hiểm. Hành động đúng nhất là tìm chú bảo vệ hoặc cô thu ngân để được giúp đỡ nhé.';
+      }
+    }
+  </script>
+</body>
+</html>
